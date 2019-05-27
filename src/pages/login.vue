@@ -78,14 +78,14 @@ export default {
   },
   created () {
   },
- /* beforeMount() {
+  beforeMount() {
     this.WXcode=this.getWXcode('code');
     if(this.WXcode===null||this.WXcode===""){
       let AppId="wxd182797f554d6b82";
       let local=window.location.href;
       window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid="+AppId+"&redirect_uri="+encodeURIComponent(local)+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
     }
-  },*/
+  },
   mounted () {
 
     console.log(this.WXcode)
@@ -145,22 +145,23 @@ export default {
         document.cookie = `head_img=${res.data.data.head_img}`;
         document.cookie = `nick_name=${res.data.data.nick_name}`;
         document.cookie = `openid=${res.data.data.openid}`;
-
-
-        /*let url=window.sessionStorage.getItem('url');
-        if(url){
-          this.$router.push(url);
-        }else{
-          this.$router.push("/personalCenter")
-        }*/
+        this.loginBar(res.data.data.user_id)
       }).catch(error => {
-        this.getCaptcha();
-        this.errorMessage=error.response.data.code;
-        this.errorTip=true;
-        let that=this;
-        window.setTimeout(function () {
-          that.errorTip=false;
-        },2000);
+      })
+    },
+    //兑吧登录重定向
+    loginBar(userId) {
+      axios({
+        method: 'GET',
+        url: `${baseURL}/v1/duiba/login?user_id=${userId}&dbredirect=https%3A%2F%2Factivity.m.duiba.com.cn%2Fngame%2Findex%3Fid%3D3382474`
+      }).then(res => {
+
+
+
+        window.open("https://www.baidu.com",'_blank')
+
+
+      }).catch(error => {
       })
     },
   },
