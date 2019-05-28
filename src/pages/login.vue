@@ -157,15 +157,19 @@ export default {
     //兑吧登录重定向
     loginBar(userId,token) {
       alert(userId)
+
+      let dbredirect = this.getWXcode('dbredirect');
+
+      alert(dbredirect)
       axios({
         method: 'GET',
-        url: `${baseURL}/v1/duiba/login?user_id=${userId}&dbredirect=https%3A%2F%2Factivity.m.duiba.com.cn%2Fngame%2Findex%3Fid%3D3382474`,
+        url: `${baseURL}/v1/duiba/login?user_id=${userId}&dbredirect=${dbredirect}`,
         headers: {
           'X-Access-Token': token,
         }
       }).then(res => {
 
-alert(res.data.url)
+        alert(res.data.url)
 
         window.open(res.data.url,'_blank')
 
