@@ -160,7 +160,7 @@ export default {
     //兑吧登录重定向
     loginBar(userId,token) {
       alert(888)
-      
+
       let dbredirect = this.getWXcode('dbredirect');
       axios({
         method: 'GET',
@@ -171,6 +171,7 @@ export default {
       }).then(res => {
         alert(999)
 
+        alert(res.data.url)
         window.open(res.data.url,'_blank')
       }).catch(error => {
       })
