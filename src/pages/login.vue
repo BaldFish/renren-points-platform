@@ -129,8 +129,8 @@ export default {
     //免密注册登录
     login() {
       let loginFormData = {
-        phone: "+86" + this.phone,//手机号
-        code: this.rueform.phone,//短信验证码
+        phone: "+86" + this.rueform.phone,//手机号
+        code: this.rueform.verify,//短信验证码
         weixin_code: this.WXcode,//微信用来获取openid的code
       };
       axios({
