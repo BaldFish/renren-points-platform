@@ -87,8 +87,12 @@ export default {
     }
   },
   mounted () {
+    if (document.cookie.length > 0){
+      let user_id =  this.getCookie(user_id)
+      let token =  this.getCookie(token)
 
-    console.log(this.WXcode)
+      this.loginBar(user_id,token)
+    }
   },
   methods: {
     //从URL获取code
@@ -177,6 +181,21 @@ export default {
       }).catch(error => {
       })
     },
+    //获取Cookie
+    getCookie(name) {
+      let cookieName = encodeURIComponent(name) + '=';
+      let cookieStart = document.cookie.indexOf(cookieName);
+      let cookieValue = null;
+      if (cookieStart > -1) {
+        let cookieEnd = document.cookie.indexOf(';', cookieStart);
+        if (cookieEnd == -1) {
+          cookieEnd = document.cookie.length;
+        }
+        cookieValue = decodeURIComponent(
+          document.cookie.substring(cookieStart + cookieName.length, cookieEnd));
+      }
+      return cookieValue;
+    },
   },
   watch: {},
   computed: {},
@@ -186,7 +205,8 @@ export default {
 
 <style lang="stylus">
   .login
-    height: 1334px
+    width 750px
+    height: 1500px
     background url("./imgs/bj.jpg") no-repeat center
     background-attachment fixed
     background-size 100% 100%
@@ -247,7 +267,7 @@ export default {
               line-height 48px
               text-align center
               border-radius 22px
-              border solid 1px #386cff  /*no*/
+              border solid 2px #386cff  /*no*/
               font-size 20px
               color: #386cff
               cursor pointer
