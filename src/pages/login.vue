@@ -90,12 +90,6 @@ export default {
     if (document.cookie.length > 0){
       let user_id =  this.getCookie("user_id")
       let token =  this.getCookie("token")
-
-
-      alert(5959595)
-      alert(user_id)
-      alert(token)
-
       this.loginBar(user_id,token)
     }
   },
@@ -154,22 +148,13 @@ export default {
         document.cookie = `head_img=${res.data.data.head_img}`;
         document.cookie = `nick_name=${res.data.data.nick_name}`;
         document.cookie = `openid=${res.data.data.openid}`;
-
-
-        alert(66)
-
-
         this.loginBar(res.data.data.user_id,res.data.data.token)
       }).catch(error => {
       })
     },
     //兑吧登录重定向
     loginBar(userId,token) {
-      alert(userId)
-
       let dbredirect = this.getWXcode('dbredirect');
-
-      alert(dbredirect)
       axios({
         method: 'GET',
         url: `${baseURL}/v1/duiba/login?user_id=${userId}&dbredirect=${dbredirect}`,
@@ -177,12 +162,7 @@ export default {
           'X-Access-Token': token,
         }
       }).then(res => {
-
-        alert(res.data.url)
-
         window.open(res.data.url,'_blank')
-
-
       }).catch(error => {
       })
     },
