@@ -145,6 +145,11 @@ export default {
         document.cookie = `head_img=${res.data.data.head_img}`;
         document.cookie = `nick_name=${res.data.data.nick_name}`;
         document.cookie = `openid=${res.data.data.openid}`;
+
+        
+        alert(res.data.data.user_id)
+
+
         this.loginBar(res.data.data.user_id)
       }).catch(error => {
       })
