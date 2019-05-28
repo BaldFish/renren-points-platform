@@ -165,9 +165,9 @@ export default {
         }
       }).then(res => {
 
-alert(res)
+alert(res.data.url)
 
-        window.open("https://www.baidu.com",'_blank')
+        window.open(res.data.url,'_blank')
 
 
       }).catch(error => {
