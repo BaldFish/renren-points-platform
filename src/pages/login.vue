@@ -146,8 +146,8 @@ export default {
         document.cookie = `nick_name=${res.data.data.nick_name}`;
         document.cookie = `openid=${res.data.data.openid}`;
 
-        
-        alert(res.data.data.user_id)
+
+        alert(66)
 
 
         this.loginBar(res.data.data.user_id)
@@ -156,12 +156,13 @@ export default {
     },
     //兑吧登录重定向
     loginBar(userId) {
+      alert(userId)
       axios({
         method: 'GET',
         url: `${baseURL}/v1/duiba/login?user_id=${userId}&dbredirect=https%3A%2F%2Factivity.m.duiba.com.cn%2Fngame%2Findex%3Fid%3D3382474`
       }).then(res => {
 
-
+alert(res)
 
         window.open("https://www.baidu.com",'_blank')
 
