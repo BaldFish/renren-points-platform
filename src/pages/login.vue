@@ -19,7 +19,7 @@
                 </div>
               </el-form-item>
             </el-form>
-            <input type="button" @click="login" class="login-btn" value="登录">
+            <span @click="login" class="login-btn">登录</span>
           </div>
         </div>
     </div>
@@ -78,14 +78,14 @@ export default {
   },
   created () {
   },
-  beforeMount() {
+/*  beforeMount() {
     this.WXcode=this.getWXcode('code');
     if(this.WXcode===null||this.WXcode===""){
       let AppId="wxd182797f554d6b82";
       let local=window.location.href;
       window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid="+AppId+"&redirect_uri="+encodeURIComponent(local)+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
     }
-  },
+  },*/
   mounted () {
     if (document.cookie.length > 0){
       let user_id =  this.getCookie("user_id")
@@ -191,7 +191,7 @@ export default {
 <style lang="stylus">
   .login
     width 750px
-    height: 1500px
+    height 1500px
     background url("./imgs/bj.jpg") no-repeat center
     background-attachment fixed
     background-size 100% 100%
@@ -213,13 +213,15 @@ export default {
         .login-btn
           width 450px
           height 80px
+          line-height 80px
+          text-align center
           background-color #386cff
           box-shadow 0 0 35px 0 rgba(56, 108, 255, 0.34)
           border-radius 40px
           font-size 36px /*px*/
           color #ffffff
           margin-top 20px
-          outline none
+          display inline-block
         .el-form
           .verify
             .el-form-item__error
