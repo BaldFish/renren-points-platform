@@ -172,7 +172,8 @@ export default {
         alert(999)
 
         alert(res.data.url)
-        window.open(res.data.url,'_blank')
+        //window.open(res.data.url,'_blank');
+        window.location.href = res.data.url
       }).catch(error => {
       })
     },
