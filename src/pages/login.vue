@@ -131,6 +131,9 @@ export default {
     },
     //免密注册登录
     login() {
+
+      alert(6666)
+
       let loginFormData = {
         phone: "+86" + this.rueform.phone,//手机号
         code: this.rueform.verify,//短信验证码
@@ -148,6 +151,8 @@ export default {
         document.cookie = `head_img=${res.data.data.head_img}`;
         document.cookie = `nick_name=${res.data.data.nick_name}`;
         document.cookie = `openid=${res.data.data.openid}`;
+
+        alert(7777)
         this.loginBar(res.data.data.user_id,res.data.data.token)
       }).catch(error => {
       })
