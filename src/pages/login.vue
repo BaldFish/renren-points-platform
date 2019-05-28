@@ -150,16 +150,19 @@ export default {
         alert(66)
 
 
-        this.loginBar(res.data.data.user_id)
+        this.loginBar(res.data.data.user_id,res.data.data.token)
       }).catch(error => {
       })
     },
     //兑吧登录重定向
-    loginBar(userId) {
+    loginBar(userId,token) {
       alert(userId)
       axios({
         method: 'GET',
-        url: `${baseURL}/v1/duiba/login?user_id=${userId}&dbredirect=https%3A%2F%2Factivity.m.duiba.com.cn%2Fngame%2Findex%3Fid%3D3382474`
+        url: `${baseURL}/v1/duiba/login?user_id=${userId}&dbredirect=https%3A%2F%2Factivity.m.duiba.com.cn%2Fngame%2Findex%3Fid%3D3382474`,
+        headers: {
+          'X-Access-Token': token,
+        }
       }).then(res => {
 
 alert(res)
