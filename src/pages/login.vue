@@ -88,14 +88,14 @@ export default {
   },
   mounted () {
     if (document.cookie.length > 0){
-      let user_id =  this.getCookie(user_id)
-      let token =  this.getCookie(token)
+      let user_id =  this.getCookie("user_id")
+      let token =  this.getCookie("token")
 
 
       alert(5959595)
       alert(user_id)
       alert(token)
-      
+
       this.loginBar(user_id,token)
     }
   },
