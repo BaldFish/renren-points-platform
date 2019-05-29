@@ -27,7 +27,7 @@
 
 <script>
 import axios from 'axios'
-const baseURL = "https://wallet-api-test.launchain.org"
+const baseURL = "https://wallet-api.launchain.cn"
 const querystring = require('querystring')
 export default {
   name: 'login',
