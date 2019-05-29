@@ -131,6 +131,7 @@ export default {
     },
     //免密注册登录
     login() {
+      alert(6666)
       let loginFormData = {
         phone: "+86" + this.rueform.phone,//手机号
         code: this.rueform.verify,//短信验证码
@@ -148,12 +149,17 @@ export default {
         document.cookie = `head_img=${res.data.data.head_img}`;
         document.cookie = `nick_name=${res.data.data.nick_name}`;
         document.cookie = `openid=${res.data.data.openid}`;
+
+        alert(777)
         this.loginBar(res.data.data.user_id,res.data.data.token)
+        // eslint-disable-next-line handle-callback-err
       }).catch(error => {
       })
     },
     //兑吧登录重定向
     loginBar(userId,token) {
+
+      alert(8888)
       let dbredirect = this.getWXcode('dbredirect');
       axios({
         method: 'GET',
@@ -162,6 +168,9 @@ export default {
           'X-Access-Token': token,
         }
       }).then(res => {
+        alert(99990)
+        alert(res.data.url)
+
         window.location.href = res.data.url
       }).catch(error => {
       })
