@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-        <div class="container" v-if="isShow">
+        <div class="container">
           <div class="content">
             <h4>登录/注册</h4>
             <el-form :model="rueform" :rules="rules" ref="ruleForms" >
@@ -74,33 +74,20 @@ export default {
       intervalCode: null,
       getCheckTime: 0, // 验证码时间
       WXcode:"",
-      isShow: true
-    }
-  },
-  beforeCreate(){
-    if (document.cookie.length > 0){
-      this.isShow = false
     }
   },
   created () {
-    if (document.cookie.length > 0){
-      this.isShow = false
-    }
   },
   beforeMount() {
-    if (document.cookie.length > 0){
-      this.isShow = false
-      this.WXcode=this.getWXcode('code');
-      if(this.WXcode===null||this.WXcode===""){
-        let AppId="wxd182797f554d6b82";
-        let local=window.location.href;
-        window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid="+AppId+"&redirect_uri="+encodeURIComponent(local)+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
-      }
+    this.WXcode=this.getWXcode('code');
+    if(this.WXcode===null||this.WXcode===""){
+      let AppId="wxd182797f554d6b82";
+      let local=window.location.href;
+      window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid="+AppId+"&redirect_uri="+encodeURIComponent(local)+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
     }
   },
   mounted () {
     if (document.cookie.length > 0){
-      this.isShow = false
       let user_id =  this.getCookie("user_id")
       let token =  this.getCookie("token")
       this.loginBar(user_id,token)
