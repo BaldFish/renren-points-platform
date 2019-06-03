@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-        <div class="container">
+        <div class="container" v-if="isShow">
           <div class="content">
             <h4>登录/注册</h4>
             <el-form :model="rueform" :rules="rules" ref="ruleForms" >
@@ -74,6 +74,7 @@ export default {
       intervalCode: null,
       getCheckTime: 0, // 验证码时间
       WXcode:"",
+      isShow: true
     }
   },
   created () {
@@ -88,6 +89,7 @@ export default {
   },
   mounted () {
     if (document.cookie.length > 0){
+      this.isShow = false
       let user_id =  this.getCookie("user_id")
       let token =  this.getCookie("token")
       this.loginBar(user_id,token)
