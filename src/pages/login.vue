@@ -78,11 +78,11 @@ export default {
     }
   },
   created () {
-  },
-  beforeMount() {
     if (document.cookie.length > 0){
       this.isShow = false
     }
+  },
+  beforeMount() {
     this.WXcode=this.getWXcode('code');
     if(this.WXcode===null||this.WXcode===""){
       let AppId="wxd182797f554d6b82";
