@@ -83,13 +83,19 @@ export default {
     }
   },
   created () {
+    if (document.cookie.length > 0){
+      this.isShow = false
+    }
   },
   beforeMount() {
-    this.WXcode=this.getWXcode('code');
-    if(this.WXcode===null||this.WXcode===""){
-      let AppId="wxd182797f554d6b82";
-      let local=window.location.href;
-      window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid="+AppId+"&redirect_uri="+encodeURIComponent(local)+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+    if (document.cookie.length > 0){
+      this.isShow = false
+      this.WXcode=this.getWXcode('code');
+      if(this.WXcode===null||this.WXcode===""){
+        let AppId="wxd182797f554d6b82";
+        let local=window.location.href;
+        window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid="+AppId+"&redirect_uri="+encodeURIComponent(local)+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+      }
     }
   },
   mounted () {
