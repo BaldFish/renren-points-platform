@@ -77,10 +77,12 @@ export default {
       isShow: true
     }
   },
-  created () {
+  beforeCreate(){
     if (document.cookie.length > 0){
       this.isShow = false
     }
+  },
+  created () {
   },
   beforeMount() {
     this.WXcode=this.getWXcode('code');
