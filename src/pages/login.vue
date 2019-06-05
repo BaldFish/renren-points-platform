@@ -152,6 +152,10 @@ export default {
         document.cookie = `head_img=${res.data.data.head_img}`;
         document.cookie = `nick_name=${res.data.data.nick_name}`;
         document.cookie = `openid=${res.data.data.openid}`;
+
+        alert("登录接口ok")
+
+
         this.loginBar(res.data.data.user_id,res.data.data.token)
         // eslint-disable-next-line handle-callback-err
       }).catch(error => {
@@ -161,6 +165,8 @@ export default {
     loginBar(userId,token) {
       alert(11111)
 
+      alert(userId)
+      alert(token)
       let dbredirect = this.getWXcode('dbredirect');
       axios({
         method: 'GET',
