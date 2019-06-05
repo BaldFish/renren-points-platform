@@ -1,5 +1,5 @@
 <template>
-    <div class="login">
+    <div class="login" :class="{'hide':isShow}">
         <div class="container">
           <div class="content">
             <h4>登录/注册</h4>
@@ -74,12 +74,17 @@ export default {
       intervalCode: null,
       getCheckTime: 0, // 验证码时间
       WXcode:"",
+      isShow: false
     }
   },
   created () {
   },
   beforeMount() {
+    if (document.cookie.length > 0){
+      this.isShow = true
+    }
     alert(44444)
+
     this.WXcode=this.getWXcode('code');
     if(this.WXcode===null||this.WXcode===""){
       alert(55555)
@@ -205,6 +210,8 @@ export default {
 </script>
 
 <style lang="stylus">
+  .hide
+    visibility hidden
   .login
     width 750px
     height 1500px
