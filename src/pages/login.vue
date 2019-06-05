@@ -168,6 +168,7 @@ export default {
       alert(userId)
       alert(token)
       let dbredirect = this.getWXcode('dbredirect');
+      alert(dbredirect)
       axios({
         method: 'GET',
         url: `${baseURL}/v1/duiba/login?user_id=${userId}&dbredirect=${dbredirect}`,
