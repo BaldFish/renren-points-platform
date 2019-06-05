@@ -14,6 +14,11 @@ export default new Router({
       path: '/login',
       name: 'login', // 登录
       component: () => import(/* webpackChunkName: "login" */ '../pages/login.vue')
+    },
+    {
+      path: '/logout',
+      name: 'logout', // 注销
+      component: () => import(/* webpackChunkName: "logout" */ '../pages/logout.vue')
     }
   ]
 })
