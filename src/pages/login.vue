@@ -80,7 +80,7 @@ export default {
   created () {
   },
   beforeMount() {
-    if (document.cookie.length > 0){
+    if (this.getCookie("token")){
       this.isShow = true
     }
     alert(44444)
@@ -94,7 +94,7 @@ export default {
     }
   },
   mounted () {
-    if (document.cookie.length > 0){
+    if (this.getCookie("token")){
       alert(33333)
 
       let user_id =  this.getCookie("user_id")
