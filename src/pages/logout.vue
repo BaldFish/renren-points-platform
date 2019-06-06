@@ -49,7 +49,7 @@ export default {
     logout(){
       let token = this.getCookie("token")
 
-      alert(token)
+      //alert(token)
 
       axios({
         method: 'DELETE',

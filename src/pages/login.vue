@@ -83,11 +83,11 @@ export default {
     if (this.getCookie("token")){
       this.isShow = true
     }
-    alert(44444)
+    //alert(44444)
 
     this.WXcode=this.getWXcode('code');
     if(this.WXcode===null||this.WXcode===""){
-      alert(55555)
+      //alert(55555)
       let AppId="wxd182797f554d6b82";
       let local=window.location.href;
       window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid="+AppId+"&redirect_uri="+encodeURIComponent(local)+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
@@ -95,7 +95,7 @@ export default {
   },
   mounted () {
     if (this.getCookie("token")){
-      alert(33333)
+      //alert(33333)
 
       let user_id =  this.getCookie("user_id")
       let token =  this.getCookie("token")
@@ -158,7 +158,7 @@ export default {
         document.cookie = `nick_name=${res.data.data.nick_name}`;
         document.cookie = `openid=${res.data.data.openid}`;
 
-        alert("登录接口ok")
+        //alert("登录接口ok")
 
 
         this.loginBar(res.data.data.user_id,res.data.data.token)
@@ -168,12 +168,12 @@ export default {
     },
     //兑吧登录重定向
     loginBar(userId,token) {
-      alert(11111)
+      //alert(11111)
 
-      alert(userId)
-      alert(token)
+      //alert(userId)
+      //alert(token)
       let dbredirect = this.getWXcode('dbredirect');
-      alert(dbredirect)
+      //alert(dbredirect)
       axios({
         method: 'GET',
         url: `${baseURL}/v1/duiba/login?user_id=${userId}&dbredirect=${dbredirect}`,
@@ -181,7 +181,7 @@ export default {
           'X-Access-Token': token,
         }
       }).then(res => {
-        alert(2222)
+        //alert(2222)
 
         window.location.href = res.data.url
       }).catch(error => {
