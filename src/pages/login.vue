@@ -1,5 +1,5 @@
 <template>
-    <div class="login">
+    <div class="login" :class="{'hide':isShow}">
         <div class="container">
           <div class="content">
             <h4>登录/注册</h4>
@@ -74,11 +74,15 @@ export default {
       intervalCode: null,
       getCheckTime: 0, // 验证码时间
       WXcode:"",
+      isShow: false
     }
   },
   created () {
   },
   beforeMount() {
+    if (this.getCookie("token")){
+      this.isShow = true
+    }
     this.WXcode=this.getWXcode('code');
     if(this.WXcode===null||this.WXcode===""){
       let AppId="wxd182797f554d6b82";
@@ -87,7 +91,7 @@ export default {
     }
   },
   mounted () {
-    if (document.cookie.length > 0){
+    if (this.getCookie("token")){
       let user_id =  this.getCookie("user_id")
       let token =  this.getCookie("token")
       this.loginBar(user_id,token)
@@ -149,6 +153,7 @@ export default {
         document.cookie = `nick_name=${res.data.data.nick_name}`;
         document.cookie = `openid=${res.data.data.openid}`;
         this.loginBar(res.data.data.user_id,res.data.data.token)
+        // eslint-disable-next-line handle-callback-err
       }).catch(error => {
       })
     },
@@ -189,13 +194,15 @@ export default {
 </script>
 
 <style lang="stylus">
+  .hide
+    visibility hidden
   .login
     width 750px
     height 1500px
     background url("./imgs/bj.jpg") no-repeat center
     background-attachment fixed
     background-size 100% 100%
-    display:flex
+    display flex
     justify-content center
     align-items center
     .container
