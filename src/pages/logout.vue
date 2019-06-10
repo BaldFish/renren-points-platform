@@ -70,7 +70,7 @@ export default {
         let that = this;
         window.setTimeout(function () {
           that.errorTip = false;
-          this.$router.push("/login")
+          that.$router.push("/login")
         },2000)
       }).catch(error => {
       })
