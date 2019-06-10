@@ -1,8 +1,8 @@
 <template>
     <div class="logout">
       <div class="container">
-        <p>确定注销当前账户？</p>
-        <span @click="logout" class="logout-btn">注销</span>
+        <p>注销当前账户？</p>
+        <span @click="logout" class="logout-btn">确定</span>
       </div>
       <div class="errorTip_wrap" >
         <div class="errorTip" v-if="errorTip">{{errorMessage}}</div>
@@ -69,7 +69,8 @@ export default {
         this.errorTip = true;
         let that = this;
         window.setTimeout(function () {
-          that.errorTip = false
+          that.errorTip = false;
+          window.location.href = "https://rr-points-test.xinxicdn.com/login?dbredirect=activity.m.duiba.com.cn%2Fchw%2Fvisual-editor%2Fskins%3Fid%3D24034"
         },2000)
       }).catch(error => {
       })
