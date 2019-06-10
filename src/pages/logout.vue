@@ -130,7 +130,7 @@ export default {
         padding 20px 30px
         background-color #000000
         opacity 0.7
-        font-size 26px;/*px*/
+        font-size 30px;/*px*/
         color #ffffff
         border-radius 30px
       }
