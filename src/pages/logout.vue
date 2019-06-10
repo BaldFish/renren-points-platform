@@ -70,7 +70,7 @@ export default {
         let that = this;
         window.setTimeout(function () {
           that.errorTip = false;
-          window.location.href = "https://rr-points-test.xinxicdn.com/login?dbredirect=activity.m.duiba.com.cn%2Fchw%2Fvisual-editor%2Fskins%3Fid%3D24034"
+          this.$router.push("/login")
         },2000)
       }).catch(error => {
       })
