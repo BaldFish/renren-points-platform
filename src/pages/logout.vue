@@ -49,7 +49,7 @@ export default {
     logout(){
       let token = this.getCookie("token")
 
-      //alert(token)
+      alert(token)
 
       axios({
         method: 'DELETE',
@@ -58,6 +58,9 @@ export default {
           'X-Access-Token': token,
         }
       }).then(res => {
+
+        alert(666)
+
         this.unsetCookie("session_id")
         this.unsetCookie("token")
         this.unsetCookie("user_id")
