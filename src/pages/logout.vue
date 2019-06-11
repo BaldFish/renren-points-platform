@@ -24,6 +24,11 @@ export default {
   },
   created () {
   },
+  beforeMount() {
+    if (this.getCookie("token")){
+      this.$router.push("/login")
+    }
+  },
   mounted () {
   },
   methods: {
@@ -48,9 +53,6 @@ export default {
     },
     logout(){
       let token = this.getCookie("token")
-
-      //alert(token)
-
       axios({
         method: 'DELETE',
         url: `${baseURL}/v1/rr-points/user/signout/${token}`,
