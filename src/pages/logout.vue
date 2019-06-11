@@ -24,6 +24,11 @@ export default {
   },
   created () {
   },
+  beforeMount() {
+    if (this.getCookie("token")){
+      this.$router.push("/login")
+    }
+  },
   mounted () {
   },
   methods: {
