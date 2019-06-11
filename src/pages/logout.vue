@@ -48,9 +48,6 @@ export default {
     },
     logout(){
       let token = this.getCookie("token")
-
-      alert(token)
-
       axios({
         method: 'DELETE',
         url: `${baseURL}/v1/rr-points/user/signout/${token}`,
@@ -58,9 +55,6 @@ export default {
           'X-Access-Token': token,
         }
       }).then(res => {
-
-        alert(666)
-
         this.unsetCookie("session_id")
         this.unsetCookie("token")
         this.unsetCookie("user_id")
@@ -76,8 +70,6 @@ export default {
           that.$router.push("/login")
         },2000)
       }).catch(error => {
-
-        alert("err")
       })
     }
   },
