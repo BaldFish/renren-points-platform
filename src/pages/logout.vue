@@ -76,6 +76,8 @@ export default {
           that.$router.push("/login")
         },2000)
       }).catch(error => {
+
+        alert("err")
       })
     }
   },
