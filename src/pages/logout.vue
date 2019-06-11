@@ -25,7 +25,7 @@ export default {
   created () {
   },
   beforeMount() {
-    if (this.getCookie("token")){
+    if (!this.getCookie("token")){
       this.$router.push("/login")
     }
   },
